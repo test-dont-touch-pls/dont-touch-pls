@@ -17,13 +17,13 @@
 		<key>kind</key>
 		<string>display-image</string>
 		<key>url</key>
-		<string>https://test-dont-touch-pls.github.io/dont-touch-pls/img/icon.png</string>
+		<string>https://test-dont-touch-pls.github.io/dont-touch-pls/img/tiny.jpg</string>
 		</dict>
 		<dict>
 		<key>kind</key>
 		<string>full-size-image</string>
 		<key>url</key>
-		<string>https://test-dont-touch-pls.github.io/dont-touch-pls/img/icon.png</string>
+		<string>https://test-dont-touch-pls.github.io/dont-touch-pls/img/tiny.jpg</string>
 		</dict>
       </array>
       <key>metadata</key>
@@ -31,11 +31,11 @@
         <key>bundle-identifier</key>
         <string>com.eeenmachine.tinytowers</string>
         <key>bundle-version</key>
-        <string>1</string>
+        <string>67</string>
         <key>kind</key>
         <string>software</string>
         <key>title</key>
-        <string>tinytowers</string>
+        <string>Tiny Towers</string>
       </dict>
     </dict>
   </array>
