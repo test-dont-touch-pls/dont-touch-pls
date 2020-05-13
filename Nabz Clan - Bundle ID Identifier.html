@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/png" href="/appinfo/favicon.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>roarijo89 Tweaks - Bundle ID finder</title>
+
+<style>
+	body {
+		background: #171714;
+		margin: 0;
+		padding: 0;
+		font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+		color: #475059;
+	}
+	@media screen and (max-width: 480px) {
+		body {
+			/*zoom: 60%;*/
+		}
+		table {zoom: 60%;}
+
+	}
+	#page {
+	    margin: 0 auto;
+	    max-width: 800px;
+	    background: #fff;
+	    padding: 20px 0;
+	    box-shadow: 0 10px 20px rgba(71,80,89,.15);
+	    min-height: 650px;
+	    transition: margin 0.2s ease-in-out;
+	}
+	@media screen and (min-width: 480px) {
+		#page {
+			margin: 60px auto;
+		}
+	}
+	h1 {
+		text-align: center;
+		font-weight: 200;
+	}
+	#searchform {
+		padding: 20px;
+		margin: 0 auto;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#search, #searchform button {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	#search {
+		width: calc(100% - 140px);
+		border: 1px solid #ccc;
+    	box-shadow: inset 0 1px 3px #ddd;
+	    border-radius: 2em;
+    	padding: .5em 1em;
+    	-webkit-appearance: textfield;
+    	font: inherit;
+	}
+	#bulksearch {
+		width: calc(100% - 140px);
+		border: 1px solid #ccc;
+    	box-shadow: inset 0 1px 3px #ddd;
+	    border-radius: 2em;
+    	padding: .5em 1em;
+    	margin: 2em 0;
+    	-webkit-appearance: textfield;
+    	font: inherit;
+	}
+	#searchform button {
+		-webkit-appearance: none;
+		margin-left: 10px;
+		font-family: inherit;
+		font-size: 100%;
+		padding: .5em 1em;
+		color: #444;
+		border: none;
+		background-color: hsla(204, 16%, 90%, 1);
+		text-decoration: none;
+		border-radius: 2px;
+	}
+	table {
+		border-collapse: collapse;
+		width: 100%
+	}
+	table tr:nth-child(odd) {
+		background: #eee;
+	}
+	table td {
+		padding: 10px;
+		box-sizing: border-box;
+	}
+	table td:nth-child(even) {
+		border-left: 1px solid #ddd;
+	}
+	h3, h4 {
+		margin: 0;
+	}
+	tr:hover h4 {
+		color: #33b5e5;
+		cursor: pointer;
+	}
+	p {
+		display: block;
+		font-size: 0.8em;
+		padding: 0 10px;
+		margin: 5px 0;
+		line-height: 150%;
+		background: none;
+	}
+	p a {
+		text-decoration: none;
+		color: #33b5e5;
+	}
+	label {
+		margin: 1em 0;
+		display: block;
+	}
+	</style>
+</head>
+<body>
+<div id="page">
+<h1 id="title">roarijo89 Tweaks - Bundle ID finder</h1>
+<div align="center">made by roarijo89 and stem grade</div>
+<br>
+<div align="center"><a href="https://roarijo89.wixsite.com/roarijo89tweaks" class="button">Official Website</a> & </<div align="center"><a href="https://roarijo89.github.io/add-repo/" class="button">add are repo</a></div>
+<form id="searchform" class="pure-form">
+<input type="search" id="search" placeholder="Enter the app name here">
+<button type="submit" value="search" class="pure-button">Search</button>
+</form>
+<table id="results" class="pure-table pure-table-striped"><tr></tr></table>
+<div align="center">This will help you find app store apps details copy the information u can use it for </<div align="center"><a href="https://roarijo89.wixsite.com/roarijo89tweaks/simple-flex-3" class="button">simple flex 3</a> if u like You can also download the appIcon 512x512 version of the icon by clicking on it.</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="29cd4444efd35f2655d6ffe7-text/javascript"></script>
+<script type="29cd4444efd35f2655d6ffe7-text/javascript">
+	function getBundleId(searchvalue) {
+
+		$.getJSON("https://itunes.apple.com/search?limit=10&media=software&term="+searchvalue+"&callback=?", function(json) {
+		    for( var i = 0; i < 10; i++) {
+		    	var appName = json.results[i].trackName;
+		    	var appId = json.results[i].trackId;
+		    	var artworkUrl = json.results[i].artworkUrl100;
+		    	var artworkUrl_l = json.results[i].artworkUrl512;
+		    	var artistName = json.results[i].artistName;
+		    	var bundleId = json.results[i].bundleId;
+		    	var result = "<tr><td><a href=\""+artworkUrl_l+"\" download=\""+appName+".png\" target=\"_blank\"><img src=\""+artworkUrl+"\"/></a></td><td><h3>"+appName+"</h3><h4 id=\"app_"+appId+"\" class=\"bundleid\" onclick=\"copyToClipboard('"+appId+"')\">"+bundleId+"</h4>"+artistName+"</td></tr>";
+		    	$('#results').append(result);
+		    }
+		})
+
+	}
+	$( "#searchform" ).submit(function( event ) {
+		event.preventDefault();
+		$("#results").html(" ");
+		var searchfield = $("#search");
+		getBundleId(searchfield.val());
+		// not logging the search value - only whether a search was actually executed or not
+		gtag('event', 'send', {
+		  'event_category': 'search',
+		  'event_label': 'search_input',
+		  'value': 'anonymized_search_input'
+		});
+	});
+	function copyToClipboard(id) {
+		var BundleId = $("#app_"+id);
+		var BundleIdText = BundleId.text();
+		BundleId.html("<input value=\""+BundleIdText+"\">");
+		BundleId.find("input").select();
+		document.execCommand("copy");
+		BundleId.find("input").focusout(function() {
+		    BundleId.html(BundleIdText);
+		})
+	}
+
+
+
+	$( document ).ready(function() {
+		$("#search").select();
+	});
+
+
+	</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38798558-4" type="29cd4444efd35f2655d6ffe7-text/javascript"></script>
+<script type="29cd4444efd35f2655d6ffe7-text/javascript">
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-38798558-4');
+	</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="29cd4444efd35f2655d6ffe7-|49" defer=""></script></body>
+
+	<footer>
+		<div class="row">
+			<div align="center"
+				<p>Made by roarijo89 & steam grade <a href='https://roarijo89.wixsite.com/roarijo89tweaks'>roarijo89 Tweaks © 2020</a></p>
+			</div>
+		</div>
+	<!-- /.row -->
+	</footer>
+
+</body>
+</html>
