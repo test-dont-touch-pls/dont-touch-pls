@@ -15,7 +15,7 @@ var routes = [
   },
   {
     path: '/appstore/',
-    componentUrl: './appstore/appstore.php',
+    componentUrl: './pages/appstore.php',
   },
   {
     path: '/eonhub/',
