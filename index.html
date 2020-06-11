@@ -844,40 +844,5 @@ Cercube options are configurable from within YouTube settings.</div>
 </div>
 <script type="text/javascript" src="js/framework7-v=1.js"></script>
 <script type="text/javascript" src="js/my-app-v=3.1.js"></script>
-<script type="text/javascript">
-
-
-
-(function(proxied) {
-		window.alert = function() {
-			iosAlert(arguments[0], arguments[1]);
-		}
-})(window.alert);
-
-function iosAlert() {
-	try {
-		var $alert = document.querySelector('.alert');
-		$alert.parentElement.removeChild($alert);
-	} catch ($error) {}
-
-	var $alert = document.createElement('span');
-	if (arguments[1] == null) {
-		arguments[1] = window.location.protocol + '//' + window.location.hostname;
-	}
-	$alert.innerHTML = '<div class="dialog-backdrop backdrop-in" style="filter: blur(8px);-webkit-filter: blur(8px);"></div><div class="alert" style="margin-top: -129px;"><div class="inner"><div class="title">Note!</div><div class="text">' + arguments[0] + '</div></div><a class="button link external" style="border: 1px solid #007aff00;border-radius: 0 0 0px 0px;" href="https://twitter.com/ipa_install">Follow @coco Tweaks</a><div class="button" style="border: 1px solid #007aff00;">Close</div></div>';
-	document.querySelector('body').appendChild($alert);
-	setTimeout(function() {
-		document.querySelector('.alert .button:last-child').addEventListener("click", function() {
-
-			$alert.parentElement.removeChild($alert);
-		});
-	});
-	return false;
-
-}
-
-iosAlert('if you want check about updates for the apps, you can follow us on twitter. and you will see all updates.')
-
-  </script>
 </body>
 </html>

@@ -196,7 +196,7 @@ li {
 </div>
 <div class="list-block" style="margin-top: 54px; width: 95%; margin-left: auto; margin-right: auto;">
 <center><ul style="margin-bottom: 15px;max-width: 700px;" class="">
-<a style="margin-top: 19px;border: none;color: #ffffff;display: block;text-decoration: none;text-align:  center;margin-bottom: -9px;" <a onclick="location='https://mobile.twitter.com/roarijo89tweaks'";" target="_blank" class="external">
+<a style="margin-top: 19px;border: none;color: #ffffff;display: block;text-decoration: none;text-align:  center;margin-bottom: -9px;" href="https://twitter.com/roarijo89tweaks" onclick="window.location='https://twitter.com/roarijo89tweaks';" target="_blank" class="external">
 <li style="height: auto;max-width: 700px;border-radius: 13px;margin-bottom: 15px;background: #1f1f27;" class="li-dark">
 <div class="item-content lazy lazy-fadeIn lazy-loaded" style="">
 <div class="item-media" style="margin-top: 3px;">
@@ -845,38 +845,6 @@ Cercube options are configurable from within YouTube settings.</div>
 <script type="text/javascript" src="js/framework7-v=1.js"></script>
 <script type="text/javascript" src="js/my-app-v=3.1.js"></script>
 <script type="text/javascript">
-
-
-
-(function(proxied) {
-		window.alert = function() {
-			iosAlert(arguments[0], arguments[1]);
-		}
-})(window.alert);
-
-function iosAlert() {
-	try {
-		var $alert = document.querySelector('.alert');
-		$alert.parentElement.removeChild($alert);
-	} catch ($error) {}
-
-	var $alert = document.createElement('span');
-	if (arguments[1] == null) {
-		arguments[1] = window.location.protocol + '//' + window.location.hostname;
-	}
-	$alert.innerHTML = '<div class="dialog-backdrop backdrop-in" style="filter: blur(8px);-webkit-filter: blur(8px);"></div><div class="alert" style="margin-top: -129px;"><div class="inner"><div class="title">Note!</div><div class="text">' + arguments[0] + '</div></div><a class="button link external" style="border: 1px solid #007aff00;border-radius: 0 0 0px 0px;" href="https://twitter.com/ipa_install">Follow @coco Tweaks</a><div class="button" style="border: 1px solid #007aff00;">Close</div></div>';
-	document.querySelector('body').appendChild($alert);
-	setTimeout(function() {
-		document.querySelector('.alert .button:last-child').addEventListener("click", function() {
-
-			$alert.parentElement.removeChild($alert);
-		});
-	});
-	return false;
-
-}
-
-iosAlert('if you want check about updates for the apps, you can follow us on twitter. and you will see all updates.')
 
   </script>
 </body>
