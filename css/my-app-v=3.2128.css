@@ -108,18 +108,18 @@ iframe .rh {
 i.apps {
     width: 25px;
     height: 25px;
-    background-image: url("../img/Home-grey.png")
+    background-image: url("../img/coco-grey.png")
 }
 .active i.apps {
-    background-image: url("../img/Home-blue.png")
+    background-image: url("../img/coco-red.png")
 }
 i.settings {
     width: 25px;
     height: 25px;
-    background-image: url("../img/Package-grey.png")
+    background-image: url("../img/box-grey.png")
 }
 .active i.settings {
-    background-image: url("../img/Package-blue.png")
+    background-image: url("../img/box-red.png")
 }
 
 i.reload {
