@@ -122,6 +122,15 @@ i.settings {
     background-image: url("../img/box-red.png")
 }
 
+i.user {
+    width: 25px;
+    height: 25px;
+    background-image: url("../img/box-grey.png")
+}
+.active i.user {
+    background-image: url("../img/box-red.png")
+}
+
 i.reload {
     width: 25px;
     height: 25px;
